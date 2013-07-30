@@ -1,11 +1,13 @@
 package gomyadmin
 
-import "database/sql"
-import _ "github.com/go-sql-driver/mysql"
+type Row struct {
+	Fields map[string]Field
+}
 
-const (
-	DRIVER_NAME      = "mysql"
-	DATA_SOURCE_NAME = "root@/test?charset=utf8"
-)
+func (r Row) GetFields(fname string) Field {
+	return r.Fields[fname]
+}
 
-type Row struct{}
+func (r Row) SetField() {
+
+}
